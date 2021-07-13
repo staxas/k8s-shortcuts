@@ -23,12 +23,12 @@ alias knc='kcn'
 # Utility function
 setContextAndNamespace() {
     if [[ ! -z $ctx ]]; then
-      opt1=" --context $ctx"
+      opt1="--context $ctx"
     else
       opt1=""
     fi
     if [[ ! -z $ns ]]; then
-      opt2=" -n $ns"
+      opt2="-n $ns"
     else
       opt2=""
     fi
@@ -47,7 +47,7 @@ ns() {
 
 # show Context/Namespace
 cn() {
-  echo $(setContextAndNamespace)
+  echo N: $ns C: $ctx
 }
 
 # Kubectl Get Pod(s) (optional search word)
