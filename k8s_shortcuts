@@ -7,10 +7,18 @@ kc() {
   kubectl --context $ctx ${*}
 }
 
+# Kubectl with Namespace
+kn() {
+  kubectl -n $ns ${*}
+}
+
+
 # Kubectl with Context and Namespace
 kcn() {
   kubectl --context $ctx -n $ns ${*}
 }
+
+alias knc='kcn'
 
 # Utility function
 setContextAndNamespace() {
@@ -64,7 +72,7 @@ kdn() {
 
 # Kubectl Get Services(s) (optional search word)
 kgs() {
-  kubectl $(setContextAndNamespace) get service ${1}
+  kubectl $(setContextAndNamespace) get services ${1}
 }
 
 # Kubectl Describe Services(s)
