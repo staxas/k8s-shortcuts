@@ -1,0 +1,81 @@
+# --- Kubernetes ---
+# Kubectl
+alias k='kubectl'
+
+# Kubectl with Context
+kc() {
+  kubectl --context $ctx ${*}
+}
+
+# Kubectl with Context and Namespace
+kcn() {
+  kubectl --context $ctx -n $ns ${*}
+}
+
+# Utility function
+setContextAndNamespace() {
+    if [[ ! -z $ctx ]]; then
+      opt1=" --context $ctx"
+    else
+      opt1=""
+    fi
+    if [[ ! -z $ns ]]; then
+      opt2=" -n $ns"
+    else
+      opt2=""
+    fi
+    echo $opt1 $opt2
+}
+
+# show ConTeXt
+ctx() {
+  echo $ctx
+}
+
+# show NameSpace
+ns() {
+  echo $ns
+}
+
+# show Context/Namespace
+cn() {
+  echo $(setContextAndNamespace)
+}
+
+# Kubectl Ge Pod(s) (optional search word)
+kgp() {
+  kubectl $(setContextAndNamespace) get pods ${1}
+}
+
+# Kubectl Describe Pod(s)
+kdp() {
+  kubectl $(setContextAndNamespace) describe pod $1
+}
+
+# Kubectl Get Namespace(s) (optional search word)
+kgn() {
+  kubectl $(setContextAndNamespace) get ns ${1}
+}
+
+# Kubectl Describe Namespace(s)
+kdn() {
+  kubectl $(setContextAndNamespace) describe ns $1
+}
+
+# Kubectl Get Services(s) (optional search word)
+kgs() {
+  kubectl $(setContextAndNamespace) get service ${1}
+}
+
+# Kubectl Describe Services(s)
+kds() {
+  kubectl $(setContextAndNamespace) describe service $1
+}
+
+kx() {
+  kubectl $(setContextAndNamespace) exec -it ${1} -- /bin/sh
+}
+
+kxb() {
+  kubectl $(setContextAndNamespace) exec -it ${1} -- bash
+}

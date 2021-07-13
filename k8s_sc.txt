@@ -1,0 +1,11 @@
+# K8s shortcuts manual
+$ctx=context, $ns=namespace
+ctx/ns/cn : show context/namespace/both
+k : kubectl
+kc : k with $ctx set
+kcn : k with $ctx & $ns set
+kgp/kdp : get/describe pods, opt $1 pod search
+kgn/kdn : get/describe namespace(s), opt $1 ns search
+kgs/kds : get/describe service(s), opt $1 service search
+kx : execute sh shell on pod
+kxb : execute bash shell on pod
