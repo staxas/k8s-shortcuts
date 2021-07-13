@@ -42,7 +42,7 @@ cn() {
   echo $(setContextAndNamespace)
 }
 
-# Kubectl Ge Pod(s) (optional search word)
+# Kubectl Get Pod(s) (optional search word)
 kgp() {
   kubectl $(setContextAndNamespace) get pods ${1}
 }
